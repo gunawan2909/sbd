@@ -37,6 +37,7 @@ thymeleaf template engine -->
                     <td th:text="${mhs.nim}"></td>
                     <td th:text="${mhs.angkatan}"></td>
                     <td>
+                        <a th:href="@{/show/{nim}(nim=${mhs.nim})}" class="btn btn-warning">Show</a>
                         <a th:href="@{/edit/{nim}(nim=${mhs.nim})}" class="btn btn-primary">Edit</a>
                         <a th:href="@{/delete/{nim}(nim=${mhs.nim})}" class="btn btn-danger">Delete</a>
                     </td>

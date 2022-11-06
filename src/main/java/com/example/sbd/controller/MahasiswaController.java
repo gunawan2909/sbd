@@ -65,4 +65,13 @@ public class MahasiswaController {
         return "redirect:/";
     }
 
+    @GetMapping("/show/{nim}")
+    public String show(@PathVariable("nim") String nim, Model model) {
+        String sql = "SELECT * FROM mahasiswa WHERE nim = ?";
+        Mahasiswa mahasiswa = jdbcTemplate.queryForObject(sql,
+                BeanPropertyRowMapper.newInstance(Mahasiswa.class), nim);
+        model.addAttribute("mahasiswa", mahasiswa);
+        return "detail";
+    }
+
 }
